@@ -9,3 +9,8 @@ class TaskView(viewsets.ModelViewSet):
     serializer_class = serializers.TaskSerializer
 
 
+class DepartmentView(viewsets.ModelViewSet):
+    queryset = models.Department.objects.all()
+    serializer_class = serializers.DepartmentSerializer
+
+
