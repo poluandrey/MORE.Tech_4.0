@@ -29,6 +29,16 @@ class Task(models.Model):
     def __str__(self):
         return self.task_name
 
+    @transition(field='task_status', source='unassigned', target='assign')
+    def assign_task_to_user(self):
+        """assign task for user"""
+        pass
+
+    @transition(field='task_status', source='assign', target='complete')
+    def complete_task(self):
+        """complete task"""
+        pass
+
 
 class TaskResponsible(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='responsible')
