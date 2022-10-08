@@ -10,9 +10,9 @@ class Experience(models.Model):
         return f'level: {str(self.level)}'
 
 
-class Achieve(models.Model):
-    achieve_name = models.CharField(max_length=120)
-    achieve_descr = models.TextField()
+class Achievement(models.Model):
+    achievement_name = models.CharField(max_length=120)
+    achievement_descr = models.TextField()
 
     def __str__(self):
-        return self.achieve_name
+        return self.achievement_name

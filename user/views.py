@@ -1,10 +1,12 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from user.models import Employee
+from user.models import Employee, EmployeeAchievement
 from user.serializers import EmployeeSerializer, EmployeeTasksSerializer
-
+from game.serializers import AchievementSerializer
+from game.models import Achievement
 
 class EmployeeView(viewsets.ModelViewSet):
     queryset = Employee.objects.filter(is_staff=False)
@@ -35,4 +37,19 @@ class EmployeeView(viewsets.ModelViewSet):
         employee.experience = employee.experience + exp
         employee.save()
         return Response(status=status.HTTP_200_OK)
+
+    @action(methods=['GET'], detail=True, url_path='achievement', url_name='achievement')
+    def achievement_list(self, request, *args, **kwargs):
+        employee = self.get_object()
+        serializer = AchievementSerializer([achievements.achievement for achievements in employee.achievements.all()],
+                                           many=True)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+    @action(methods=['POST'], detail=True, url_path='achievement/reward', url_name='reward-achievement')
+    def reward_achievement(self, request, *args, **kwargs):
+        employee = self.get_object()
+        achievement = get_object_or_404(Achievement, id=request.data.get('achievement_id'))
+        EmployeeAchievement.objects.create(employee=employee, achievement=achievement)
+        return Response(status=status.HTTP_200_OK)
+
 

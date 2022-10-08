@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-from game.models import Achieve, Experience
+from game.models import Achievement, Experience
 
 
-@admin.register(Achieve)
+@admin.register(Achievement)
 class AchieveAdmin(admin.ModelAdmin):
-    list_display = ['achieve_name', 'achieve_descr']
+    list_display = ['achievement_name', 'achievement_descr']
 
 
 @admin.register(Experience)
