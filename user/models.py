@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models import Q
 from django.contrib.auth.models import AbstractUser
 
 
@@ -22,10 +21,3 @@ class Subordinates(models.Model):
         return f'{self.manager.username}'
 
 
-class Experience(models.Model):
-    experience_from = models.IntegerField()
-    experience_to = models.IntegerField()
-    level = models.IntegerField()
-
-    def __str__(self):
-        return f'level: {str(self.level)}'

@@ -1,7 +1,8 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from user.models import Employee, Experience
+from user.models import Employee
+from game.models import Experience
 
 
 @receiver(post_save, sender=Employee, dispatch_uid='calculate_user_level')
