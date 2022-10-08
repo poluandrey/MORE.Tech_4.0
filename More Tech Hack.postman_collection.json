@@ -115,6 +115,66 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "employee achievement",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/employee/2/achievement/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"employee",
+								"2",
+								"achievement",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee achievement reward",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"achievement_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/employee/2/achievement/reward/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"employee",
+								"2",
+								"achievement",
+								"reward",
+								""
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
