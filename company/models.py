@@ -39,6 +39,14 @@ class Task(models.Model):
         """complete task"""
         pass
 
+    @transition(field='task_status', source='assign', target='in progress')
+    def get_task_in_work(self):
+        """get task in work"""
+
+    @transition(field='task_status', source='*', target='closed')
+    def close_task(self):
+        """close task"""
+
 
 class TaskResponsible(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='responsible')
