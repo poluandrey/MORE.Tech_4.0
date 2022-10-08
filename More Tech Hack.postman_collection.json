@@ -239,6 +239,76 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "take task to work",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee_id\": 4\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/company/task/1/take-to-work/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"company",
+								"task",
+								"1",
+								"take-to-work",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "close task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employee_id\": 4\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/company/task/3/close/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"company",
+								"task",
+								"3",
+								"close",
+								""
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
