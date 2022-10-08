@@ -17,7 +17,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Employee
-        fields = ['id', 'first_name', 'last_name', 'department']
+        fields = ['id', 'first_name', 'last_name', 'department', 'level', 'experience']
 
 
 class EmployeeTasksSerializer(serializers.ModelSerializer):
@@ -33,4 +33,4 @@ class EmployeeTasksSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Employee
-        fields = ['id', 'first_name', 'last_name', 'tasks']
+        fields = ['id', 'first_name', 'last_name', 'tasks', ]
